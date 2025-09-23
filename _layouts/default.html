@@ -3,13 +3,22 @@
 
 {% include head.html %}
 
+
 <body>
+  <div class="profile-fixed">
+    <img src="{{ site.baseurl }}/public/profile.jpg" alt="Weslley Nunes" class="profile-img-fixed">
+    <div class="profile-cv-link">
+      <a href="{{ site.baseurl }}/public/resume.pdf" download target="_blank" aria-label="Download resume">
+        <i class="fas fa-file-download"></i>
+      </a>
+    </div>
+  </div>
 
   <div class="row">
     <div class="large-12 large-centered columns">
 
       <header class="masthead">
-        <img src="{{ site.baseurl }}/public/profile.jpg" alt="Jami Gibbs">
+      <div class="large-12 large-centered columns">
       </header>
 
     </div>
@@ -17,21 +26,18 @@
 
   <div class="row">
 
-    <div class="large-6 large-offset-3 columns">
+  <div class="large-12 columns wide-content">
 
-      <div class="content-section">
-
-        <p>
-          Hello! I’m Jami Gibbs and I'm a software engineer from Chicago. I founded
-          <a href="https://rescuethemes.com">Rescue Themes</a> which specializes in nonprofit and niche website templates. Currently I'm working in civic tech modernizing citizen services, advocating for accessibility, and leading open source government projects.</p>
-        <p>
-          When I'm not contributing to a <a href="https://github.com/jamigibbs">cool project</a> or sharpening my engineering skills, I'm <a href="https://jgibbs.co/">woodworking</a> and <a href="https://www.strava.com/athletes/1711062">kicking up road dust</a>.
-        </p>
-
+      <div class="intro-separator"></div>
+      <div class="intro-code wide-intro">
+        <span class="hello">Hello!</span> I'm Weslley Nunes, a Brazilian software developer who loves to make computers do useful (and accessible) things, mostly with Java, Python, C++, and Rust. My career is a fun mix of code, geography studies, photography, and comic book illustration.<br>
+        <br>
+        When I'm not deep in <a href="https://github.com/weslleyanunes">code thinking</a> about how to make technology more inclusive, I'm probably losing a game of online chess, planning an RPG campaign, or being bossed around by my dog. I enjoy a good sci-fi book and a quiet home life with my boyfriend.
       </div>
+      <div class="intro-separator"></div>
 
       <main>
-        <h2>Latest Work</h2>
+        <h1>Latest Work</h1>
         {% for post in site.posts %}
           <div class="project-post">
             <h3><a href="{{ post.site }}">{{ post.title }}</a></h3>
@@ -44,7 +50,7 @@
               </li>
               {% if post.site %}
                 <li>
-                  <a href="{{ post.site }}" aria-label="Blog"><i class="fa fa-link"></i></a>
+                  <a href="{{ post.site }}" aria-label="Medium"><i class="fab fa-medium"></i></a>
                 </li>
               {% endif %}
             </ul>
@@ -53,42 +59,47 @@
           </div>
         {% endfor %}
       </main>
-
+  <div class="footer-separator"></div>
+    <div class="footer-separator"></div>
+    <div class="footer-code wide-intro">
       <footer>
         <h2>Get In Touch!</h2>
-
         <p>
           Send me an
-          <a href="mailto:jami0821@gmail.com?Subject=Hello,%20Jami!">email</a> or ping me on
-          <a href="https://www.linkedin.com/in/jami-gibbs-731985112
-">Linkedin</a>. I’m also on
-          <a href="https://github.com/jamigibbs">Github</a> and <a href="https://dribbble.com/JamiGibbs">Dribbble</a>.
+          <a href="mailto:contact@weslleynunes.dev?Subject=Hello,%20Weslley!">email</a> or ping me on
+          <a href="https://www.linkedin.com/in/weslleynunes">Linkedin</a>. I’m also on
+    <a href="https://github.com/weslleyanunes">Github</a> and <a href="https://medium.com/@weslleynunes">Medium</a>.
         </p>
-
         <p class="copyright">
           <!-- &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. -->
           This site is a Jekyll template I developed and it's licensed MIT. You're welcome to
           <a href="https://github.com/jamigibbs/portfolio">use it too</a>!
         </p>
       </footer>
+    </div>
 
     </div>
 
     <div class="large-2 large-offset-1 columns social">
-      <ul>
+      <ul class="social-icons social-icons-top">
         <li>
-          <a href="https://github.com/{{ site.github }}" aria-label="GitHub">
-            <i class="fab fa-github"></i>
+          <a href="https://github.com/weslleyanunes" aria-label="GitHub">
+            <i class="fab fa-github social-icon"></i>
           </a>
         </li>
         <li>
-          <a href="https://blog.jamigibbs.com/" aria-label="Blog">
-            <i class="fas fa-blog"></i>
+          <a href="https://www.linkedin.com/in/weslleyanunes" aria-label="LinkedIn">
+            <i class="fab fa-linkedin social-icon"></i>
           </a>
         </li>
         <li>
-          <a href="https://dribbble.com/{{ site.dribbble }}" aria-label="Dribbble">
-            <i class="fab fa-dribbble"></i>
+          <a href="https://medium.com/@weslleynunes" aria-label="Medium">
+            <i class="fab fa-medium social-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:contact@weslleynunes.dev " aria-label="Email">
+            <i class="fas fa-at social-icon"></i>
           </a>
         </li>
       </ul>

@@ -1,8 +1,78 @@
+// Separadores visuais entre intro, corpo e rodapé
+// Separadores visuais entre intro, corpo e rodapé
+.intro-separator {
+  width: 100%;
+  height: 2.5em;
+  display: block;
+}
+.footer-separator {
+  width: 100%;
+  height: 2.5em;
+  display: block;
+}
+.wide-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wide-intro {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.social-icons-top {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  z-index: 100;
+  background: transparent;
+}
+.social-icons-top {
+  margin-bottom: 2.5em;
+}
+.intro-code {
+  font-family: 'Ubuntu Mono', 'Fira Mono', 'Consolas', monospace;
+  font-size: 1.35rem;
+// Caixa de código para o rodapé
+.footer-code {
+  font-family: 'Ubuntu Mono', 'Fira Mono', 'Consolas', monospace;
+  font-size: 1.05rem;
+  background: #fff;
+  border: 1.5px solid #2d2c2a;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  margin-bottom: 2em;
+  color: #2d2c2a;
+  box-shadow: 0 2px 12px rgba(45,44,42,0.07);
+  position: relative;
+}
+  margin-bottom: 3em;
+  background: #fff;
+  border: 1px solid #2d2c2a;
+  border-radius: 8px;
+  padding: 1.5em 2em;
+  margin-bottom: 2em;
+  color: #2d2c2a;
+  box-shadow: 0 2px 12px rgba(45,44,42,0.07);
+  position: relative;
+}
+.intro-code .hello {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ea8229;
+  letter-spacing: 1px;
+  margin-right: 0.5em;
+  display: inline-block;
+}
+// Separação do rodapé
+.site-footer {
+  margin-top: 3em;
+}
 // Layout
 //
 // Styles for managing the structural hierarchy of the site.
-
 .social {
+// ...existing code...
   ul {
     @include bp-small {
       text-align: center;
@@ -23,10 +93,10 @@
     }
   }
   i {
-    font-size: 32px;
+    font-size: 40px;
   }
+  text-align: right;
 }
-
 footer {
   margin: 2em 0;
   h2 {
@@ -39,7 +109,7 @@ footer {
   }
   .copyright {
     margin-top: 2em;
-    color: $gray-3;
+    color: $body-color;
     line-height: 1.75;
     font-size: 14px;
     @include bp-small {
@@ -49,7 +119,7 @@ footer {
       text-align: center;
     }
     a {
-      color: $gray-3;
+      color: $body-color;
     }
   }
 }

@@ -6,7 +6,7 @@
 .pagination {
   overflow: hidden; // clearfix
   margin: 0 -1.5rem 1rem;
-  color: #ccc;
+  color: $body-color;
   text-align: center;
 }
 
@@ -14,7 +14,7 @@
 .pagination-item {
   display: block;
   padding: 1rem;
-  border: solid #eee;
+  border: solid #2d2c2a;
   border-width: 1px 0;
 
   &:first-child {
@@ -22,9 +22,8 @@
   }
 }
 
-// Only provide a hover state for linked pagination items
 a.pagination-item:hover {
-  background-color: #f5f5f5;
+  background-color: #d4b28f;
 }
 
 @media (min-width: 30em) {
