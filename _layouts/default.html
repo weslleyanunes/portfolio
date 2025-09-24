@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include head.html %}
-
+  {% include head.html %}
 
 <body>
+
   <header class="masthead">
     <div class="profile-fixed">
       <img src="{{ site.baseurl }}/public/profile.jpg" alt="Weslley Nunes" class="profile-img-fixed">
     </div>
   </header>
 
+
   <div class="row">
     <div class="large-12 large-centered columns">
-
       <header class="masthead">
-      <div class="large-12 large-centered columns">
+        <div class="large-12 large-centered columns">
+        </div>
       </header>
-
     </div>
   </div>
 
-  <div class="row">
 
-  <div class="large-12 columns wide-content">
+  <div class="row">
+    <div class="large-12 columns wide-content">
 
       <div class="intro-separator"></div>
+      
       <div class="intro-code wide-intro">
-        <span class="hello">Hello!</span> I'm Weslley Nunes, a Brazilian software developer who loves to make computers do useful (and accessible) things, mostly with Java, Python, C++, and Rust. My career is a fun mix of code, geography studies, photography, and comic book illustration.<br>
+        <span class="hello">Hello!</span> I'm Weslley Nunes, a brazilian software developer who loves to make computers do useful (and accessible) things, mostly with Java, Python, C++, and Rust. My career is a fun mix of code, geography studies, photography, and comic book illustration.<br>
         <br>
         When I'm not deep in <a href="https://medium.com/@weslleynunes">code</a> thinking about how to make technology more inclusive, I'm probably losing a game of online chess, planning an RPG campaign, or being bossed around by my dog. I enjoy a good sci-fi book and a quiet home life with my boyfriend.
       </div>
+      
       <div class="intro-separator"></div>
 
+
       <main>
+        <br>
         <h1>Latest Work</h1>
+
         {% for post in site.posts %}
           <div class="project-post">
             <h3><a href="{{ post.site }}">{{ post.title }}</a></h3>
@@ -56,30 +61,31 @@
           </div>
         {% endfor %}
       </main>
-  <div class="footer-separator"></div>
-    <div class="footer-separator"></div>
-    <div class="footer-code wide-intro">
-      <footer>
-        <h2>Get In Touch!</h2>
-        <p>
-          Send me an
-          <a href="mailto:contact@weslleynunes.dev?Subject=Hello,%20Weslley!">email</a> or ping me on
-          <a href="https://www.linkedin.com/in/weslleynunes">Linkedin</a>. I’m also on
-    <a href="https://github.com/weslleyanunes">Github</a> and <a href="https://medium.com/@weslleynunes">Medium</a>.
-        </p>
-        <p class="copyright">
-          <!-- &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. -->
-          This site is a Jekyll template I developed and it's licensed MIT. You're welcome to
-          <a href="https://github.com/jamigibbs/portfolio">use it too</a>!
-        </p>
-      </footer>
-    </div>
+
+
+      <div class="footer-separator"></div>
+      <div class="footer-separator"></div>
+      
+      <div class="footer-code wide-intro">
+        <footer>
+          <h2>Get In Touch!</h2>
+          <p>
+            Send me an
+            <a href="mailto:contact@weslleynunes.dev?Subject=Hello,%20Weslley!">email</a> or ping me on
+            <a href="https://www.linkedin.com/in/weslleynunes">Linkedin</a>. I'm also on
+            <a href="https://github.com/weslleyanunes">Github</a> and <a href="https://medium.com/@weslleynunes">Medium</a>.
+          </p>
+          <p class="copyright">
+            This site is a Jekyll template I developed and it's licensed MIT. You're welcome to
+            <a href="https://github.com/jamigibbs/portfolio">use it too</a>!
+          </p>
+        </footer>
+      </div>
 
     </div>
-
   </div>
 
-  <!-- Ícones sociais como overlay fixo à direita -->
+
   <div class="social-right-overlay">
     <div class="social">
       <ul class="social-icons social-icons-top">
@@ -107,18 +113,19 @@
     </div>
   </div>
 
+
   {% if site.google_analytics %}
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', '{{ site.google_analytics }}', 'auto');
-    ga('send', 'pageview');
-  </script> {% endif %}
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+  {% endif %}
 
 </body>
-
 </html>

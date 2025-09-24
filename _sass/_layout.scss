@@ -1,93 +1,108 @@
-// Separadores visuais entre intro, corpo e rodapé - removidos para layout mais limpo
 .intro-separator {
-  display: none; // removido completamente
-}
-.footer-separator {
-  display: none; // removido completamente
+  display: none;
 }
 
-// Forçar todos os hovers de links a serem brancos por padrão.
-// A exceção `.intro-code a:hover` foi adicionada acima e usa !important para prevalecer.
+.footer-separator {
+  display: none;
+}
+
+
 a:hover,
 a:focus {
   color: $hover-color !important;
   text-decoration: none;
 }
 
-// Responsividade: garantir que em telas pequenas a intro e a coluna usem 100% de largura
+
 @include bp-small {
   .wide-content,
   .wide-intro {
     max-width: 100% !important;
     padding: 0 1.25rem;
     margin-left: auto !important;
-     padding-top: 0.5rem; // aproximar conteúdo do topo
+    padding-top: 0.5rem;
   }
+  
   .intro-code,
   .footer-code {
     padding: 1rem !important;
     font-size: 1rem !important;
   }
+  
   .profile-img-fixed {
     width: 140px !important;
   }
+  
   .social-icons-top {
     top: 16px !important;
     right: 12px !important;
   }
 }
+
+
 .wide-content {
   box-sizing: border-box;
-  max-width: #{$content-max-width}; // coluna de posts: um pouco mais larga
+  max-width: #{$content-max-width};
   margin-left: auto;
   margin-right: auto;
-  padding-left: 3rem; // centralização simétrica
-  padding-right: 3rem; // centralização simétrica - removido padding extra
-  padding-top: 0.5rem; /* reduzida drasticamente em ~200px */
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.5rem;
   padding-bottom: 2rem;
-  text-align: left; // garante alinhamento à esquerda do conteúdo
-  width: 100%; // usa toda a largura disponível para centralização verdadeira
+  text-align: left;
+  width: 100%;
 }
 .wide-intro {
   box-sizing: border-box;
-  max-width: #{$content-max-width}; // mesmo width que a coluna de posts para alinhamento
+  max-width: #{$content-max-width};
   margin-left: auto;
   margin-right: auto;
-  padding-left: 3rem; // centralização simétrica
-  padding-right: 3rem; // centralização simétrica - removido padding extra
-  padding-top: 0.5rem; /* reduzida drasticamente */
-  padding-bottom: 0.5rem; // reduzido para conectar melhor com o conteúdo
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
-  /* Ícones sociais sobrepostos (fixed) em todas as larguras para evitar reflows
-     O wrapper tem pointer-events: none para não bloquear o conteúdo; os links
-     internos continuam clicáveis com pointer-events: auto. */
-  .social-icons-top {
-    /* Volta a ser relativa/estática no fluxo da página */
-    position: static;
-    top: auto;
-    right: auto;
-    margin: 0;
-    display: block;
-    z-index: auto;
-    pointer-events: auto;
-    background: transparent;
-  }
-  .social-icons-top a { pointer-events: auto; }
 
-  /* Ajuste para telas pequenas: garantir que fiquem dentro da viewport */
-  @include bp-small {
-    .social-icons-top {
-      right: 10px !important;
-      top: 8px !important;
-    }
+
+.social-icons-top {
+  position: static;
+  top: auto;
+  right: auto;
+  margin: 0;
+  display: block;
+  z-index: auto;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.social-icons-top a { 
+  pointer-events: auto; 
+}
+
+
+@include bp-small {
+  .social-icons-top {
+    right: 10px !important;
+    top: 8px !important;
   }
+}
 .intro-code {
   font-family: Ubuntu Mono;
   font-size: 1.25rem;
-  text-align: center; // centraliza o cabeçalho/introdução dentro da coluna
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-// Caixa de código para o rodapé
+  margin-bottom: 3em;
+  background: #fff;
+  border: 1px solid #2d2c2a;
+  border-radius: 8px;
+  padding: 1.5em 2em;
+  color: #2d2c2a;
+  box-shadow: 0 2px 12px rgba(45,44,42,0.07);
+  position: relative;
+}
+
+
 .footer-code {
   font-family: Ubuntu Mono;
   font-size: 1.05rem;
@@ -95,16 +110,6 @@ a:focus {
   border: 1.5px solid #2d2c2a;
   border-radius: 8px;
   padding: 1em 1.5em;
-  margin-bottom: 2em;
-  color: #2d2c2a;
-  box-shadow: 0 2px 12px rgba(45,44,42,0.07);
-  position: relative;
-}
-  margin-bottom: 3em;
-  background: #fff;
-  border: 1px solid #2d2c2a;
-  border-radius: 8px;
-  padding: 1.5em 2em;
   margin-bottom: 2em;
   color: #2d2c2a;
   box-shadow: 0 2px 12px rgba(45,44,42,0.07);
@@ -119,25 +124,25 @@ a:focus {
   display: inline-block;
 }
 
-// Forçar hover dos links dentro da intro para a cor específica
+
 .intro-code a,
 .intro-code a:visited {
   color: $body-color;
 }
+
 .intro-code a:hover,
 .intro-code a:focus {
   color: $intro-hover-color !important;
   text-decoration: none;
 }
-// Separação do rodapé
+
+
 .site-footer {
   margin-top: 3em;
 }
-// Layout
-//
-// Styles for managing the structural hierarchy of the site.
+
+
 .social {
-// ...existing code...
   ul {
     @include bp-small {
       text-align: center;
@@ -146,6 +151,7 @@ a:focus {
       text-align: center;
     }
   }
+  
   li {
     margin-bottom: $social-gap-vertical;
     @include bp-small {
@@ -157,19 +163,20 @@ a:focus {
       padding-right: 1em;
     }
   }
+  
   i {
-    font-size: $social-icon-size; /* ícones menores */
+    font-size: $social-icon-size;
     display: block;
     line-height: 1;
   }
+  
   text-align: right;
 }
 
-/* Ícones sociais como overlay fixo à direita */
 .social-right-overlay {
   position: fixed;
   top: 50%;
-  right: 1.5rem; // um pouco mais próximo da borda para balancear
+  right: 1.5rem;
   transform: translateY(-50%);
   z-index: 1000;
   
@@ -191,7 +198,7 @@ a:focus {
       font-size: $social-icon-size;
       display: block;
       line-height: 1;
-      color: #2d2c2a; // cor consistente
+      color: #2d2c2a;
       transition: color 0.2s;
       
       &:hover {
@@ -201,7 +208,6 @@ a:focus {
   }
 }
 
-/* Ícones sociais centralizados */
 .social-centered {
   text-align: center;
   margin: 2rem auto;
@@ -225,27 +231,35 @@ a:focus {
     line-height: 1;
   }
 }
+
+
 footer {
   margin: 2em 0;
+  
   h2 {
     margin-bottom: 1em;
     font-size: 22px;
   }
+  
   p {
     font-size: 18px;
     line-height: 2;
   }
+  
   .copyright {
     margin-top: 2em;
     color: $body-color;
     line-height: 1.75;
     font-size: 14px;
+    
     @include bp-small {
       text-align: center;
     }
+    
     @include bp-medium {
       text-align: center;
     }
+    
     a {
       color: $body-color;
     }
