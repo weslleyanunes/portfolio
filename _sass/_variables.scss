@@ -31,6 +31,25 @@ $border-color: #e5e5e5;
 $large-breakpoint: 38em;
 $large-font-size: 20px;
 
+// Largura máxima padrão do conteúdo central (usar para posicionamento lateral)
+$content-max-width: 1200px; /* aumentada de 900px para 1200px */
+
+// Espaçamento lateral entre a coluna central e elementos fixos (profile/social)
+$side-offset: 96px;
+
+// Deslocamento específico apenas para ícones sociais (pode ser menor que $side-offset
+// para aproximar os ícones do corpo central sem afetar o profile à esquerda)
+$social-side-offset: 160px;
+
+// Layout sizing variables (padronização)
+$profile-size: 120px; // largura do avatar (reduzido para melhorar proporção no topo)
+$profile-border: 3px; // borda do avatar
+$header-vertical-gap: 1rem; // espaçamento do header/topo (reduzido)
+$social-icon-size: 28px; // tamanho dos ícones sociais
+$social-gap-vertical: 0.75em; // espaçamento vertical entre ícones
+$social-align-offset: 48px; // distância a partir da borda direita do conteúdo para alinhar ícones
+$social-encostado-offset: 0px; // deslocamento fino para deixar ícones "encostados" na borda interna
+
 $code-font-family: 'Ubuntu Mono', Menlo, Monaco, "Courier New", monospace;
 $code-color: #bf616a;
 

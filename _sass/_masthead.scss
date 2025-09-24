@@ -1,44 +1,52 @@
-.profile-cv-link {
-  margin-top: 1.5em;
-  text-align: center;
-  a {
-    color: #2d2c2a;
-    text-decoration: none;
-    font-size: 1rem;
-    font-family: Helvetica, sans-serif;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
-    transition: color 0.2s;
-    &:hover {
-      color: $hover-color;
-    }
-    i {
-      font-size: 1.3em;
-    }
-    .cv-text {
-      font-size: 1em;
-      letter-spacing: 1px;
-    }
-  }
-}
+/* Removidas todas as referências aos estilos de download */
 .profile-fixed {
-  position: fixed;
-  top: 40px;
-  left: 40px;
-  z-index: 100;
+  /* Avatar centralizado no fluxo da página */
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1rem auto; /* reduzida margem inferior */
+  padding: 0 1rem;
+  text-align: center;
+  z-index: auto;
+  pointer-events: auto;
 }
+
+/* Removida a versão fixa do ícone de download - volta a rolar com a página */
 .profile-img-fixed {
-  width: 200px;
+  width: $profile-size;
+  height: $profile-size;
+  /* Tornar sempre circular e garantir que a imagem preencha o círculo */
   border-radius: 50%;
-  border: 3px solid #2d2c2a;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  border: $profile-border solid #2d2c2a;
   box-sizing: border-box;
   background: #2d2c2a;
+  img, /* caso usemos uma tag img interna no futuro */
+  & {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* garante que a foto preencha o círculo sem distorção */
+    display: block;
+  }
 }
+
+  @include bp-small {
+    .profile-img-fixed {
+      width: 72px !important;
+      height: 72px !important;
+    }
+    .profile-cv-link {
+      margin-top: 0.2rem !important;
+    }
+  }
 .masthead {
-  padding: 1rem 0;
-  margin: 2rem 0;
+  padding: 0.5rem 0; /* reduzida drasticamente */
+  margin: 0.5rem 0; /* reduzida de 2rem para 0.5rem */
   img {
     width: 250px;
     border-radius: 50%;
