@@ -9,6 +9,9 @@ _site/
 vendor/
 .vendor/
 
+# Keep assets folder in source control
+# assets/
+
 # Logs
 *.log
 

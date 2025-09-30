@@ -26,7 +26,7 @@ a:focus {
   .intro-code,
   .footer-code {
     padding: 1rem !important;
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
   }
   
   .profile-img-fixed {
@@ -122,6 +122,10 @@ a:focus {
   letter-spacing: 1px;
   margin-right: 0.5em;
   display: inline-block;
+
+  @include bp-small {
+    font-size: 1.8rem;
+  }
 }
 
 
@@ -173,6 +177,200 @@ a:focus {
   text-align: right;
 }
 
+.accessibility-controls {
+  position: fixed;
+  top: 2rem;
+  left: 1.5rem;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .accessibility-btn {
+    width: $social-icon-size;
+    height: $social-icon-size;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    i {
+      font-size: $social-icon-size;
+      color: #2d2c2a;
+      transition: color 0.2s;
+    }
+
+    &:hover {
+      i {
+        color: #fff;
+      }
+    }
+
+    &.active {
+      i {
+        color: $accessibility-hover-color;
+      }
+    }
+
+    &:focus {
+      outline: 2px solid rgba(234, 130, 41, 0.4);
+      outline-offset: 2px;
+    }
+
+    &.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      
+      &:hover i {
+        color: #2d2c2a;
+      }
+    }
+  }
+
+  // Desktop: mantém o layout original
+  @include bp-large {
+    display: flex;
+  }
+
+  @include bp-medium {
+    display: flex;
+  }
+
+  // Mobile: esconde os controles individuais
+  @include bp-small {
+    display: none;
+  }
+}
+
+// Menu colapsável de acessibilidade para mobile
+.accessibility-mobile {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1002;
+  display: none;
+
+  @include bp-small {
+    display: block;
+  }
+
+  .accessibility-toggle {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 20px;
+      color: #2d2c2a;
+      transition: color 0.2s;
+      filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    }
+
+    &:hover {
+      i {
+        color: #ea8229;
+        transform: scale(1.1);
+      }
+    }
+
+    &.menu-active {
+      i {
+        color: #ea8229;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .accessibility-menu {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    display: flex;
+    gap: 16px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &.expanded {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .accessibility-btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      i {
+        font-size: 14px;
+        color: #2d2c2a;
+        transition: color 0.2s;
+        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+      }
+
+      &:hover {
+        i {
+          color: #ea8229;
+          transform: scale(1.1);
+        }
+      }
+
+      &.active {
+        i {
+          color: #ea8229;
+        }
+      }
+    }
+  }
+}
+
+
+.tts-highlight {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid $accessibility-hover-color;
+    border-radius: 4px;
+    animation: tts-pulse 1.5s infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes tts-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+
 .social-right-overlay {
   position: fixed;
   top: 50%;
@@ -203,6 +401,111 @@ a:focus {
       
       &:hover {
         color: #fff;
+      }
+    }
+  }
+
+  // Desktop e tablet: mantém visível
+  @include bp-large {
+    display: block;
+  }
+
+  @include bp-medium {
+    display: block;
+  }
+
+  // Mobile: esconde
+  @include bp-small {
+    display: none;
+  }
+}
+
+// Menu colapsável social para mobile
+.social-mobile {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1002;
+  display: none;
+
+  @include bp-small {
+    display: block;
+  }
+
+  .social-toggle {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 20px;
+      color: #2d2c2a;
+      transition: color 0.2s;
+      filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    }
+
+    &:hover {
+      i {
+        color: #ea8229;
+        transform: scale(1.1);
+      }
+    }
+
+    &.menu-active {
+      i {
+        color: #ea8229;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .social-menu {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    display: flex;
+    gap: 16px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &.expanded {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .social-btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+
+      i {
+        font-size: 14px;
+        color: #2d2c2a;
+        transition: color 0.2s;
+        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+      }
+
+      &:hover {
+        i {
+          color: #ea8229;
+          transform: scale(1.1);
+        }
       }
     }
   }
@@ -239,11 +542,27 @@ footer {
   h2 {
     margin-bottom: 1em;
     font-size: 22px;
+
+    @include bp-small {
+      font-size: 18px;
+    }
   }
   
   p {
     font-size: 18px;
     line-height: 2;
+
+    @include bp-small {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  }
+  
+  // Hover específico para links do footer
+  a:hover,
+  a:focus {
+    color: #ea8229 !important;
+    text-decoration: none;
   }
   
   .copyright {
@@ -262,6 +581,12 @@ footer {
     
     a {
       color: $body-color;
+      
+      &:hover,
+      &:focus {
+        color: #ea8229 !important;
+        text-decoration: none;
+      }
     }
   }
 }

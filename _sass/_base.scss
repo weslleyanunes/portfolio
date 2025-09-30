@@ -14,16 +14,22 @@ body {
   padding: 0;
 }
 
+:root {
+  --font-scale: 1;
+  --base-font-size: #{$root-font-size};
+  --large-font-size: #{$large-font-size};
+}
+
 html {
+  font-size: calc(var(--base-font-size) * var(--font-scale));
 
   @media (min-width: $large-breakpoint) {
-    font-size: $large-font-size;
+    font-size: calc(var(--large-font-size) * var(--font-scale));
   }
 }
 
 body {
   font-family: $root-font-family;
-  font-size: $root-font-size;
   line-height: $root-line-height;
   color: $body-color;
   background-color: $body-bg;
